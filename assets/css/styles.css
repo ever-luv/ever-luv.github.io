@@ -45,7 +45,7 @@ a:hover {
 }
 
 .top-header .logo {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
 }
 
@@ -60,7 +60,7 @@ a:hover {
 }
 
 .main-title h1 {
-    font-size: 32px;
+    font-size: 25px;
     font-weight: normal;
     color: #333;
 }
@@ -71,7 +71,7 @@ a:hover {
 .main-nav {
     background-color: #fff;
     border-bottom: 1px solid #e1e4e8;
-    padding: 15px 0;
+    padding: 13px 0;
 }
 
 .main-nav .container {
@@ -235,8 +235,8 @@ a:hover {
 .bottom-footer {
     background-color: #000;
     color: #fff;
-    padding: 10px 0;
-    font-size: 14px;
+    padding: 15px 0;
+    font-size: 15px;
     width: 100%;
 }
 
