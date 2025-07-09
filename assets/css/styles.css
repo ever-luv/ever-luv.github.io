@@ -222,7 +222,11 @@ a:hover {
 }
 
 .footer-content {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* 控制三项之间的间距 */
+    flex-wrap: wrap; /* 在小屏幕上自动换行 */
 }
 
 .footer-content p {
