@@ -59,7 +59,7 @@ social_links:         # 社交媒体链接
     url: https://twitter.com/yourtwitter
 
 # GitHub Pages 特定设置（自动构建）
-remote_theme: pages-themes/minima@v0.2.0  # 使用远程主题（可选）
+remote_theme: jekyll/minima  # 使用远程主题（可选）
 
 # 评论系统设置（示例）
 disqus:
