@@ -2,29 +2,59 @@
 layout: default
 ---
 
-<header class="site-header dark-bar">
-  <div class="wrapper">
-    <nav class="site-nav">
-      {% for item in site.navbar %}
-        <a class="page-link" href="{{ item.url | relative_url }}">{{ item.name }}</a>
-      {% endfor %}
-    </nav>
-  </div>
-</header>
+<!-- 标题区域 -->
+<div class="hero-section">
+  <h1>{{ site.description }}</h1>
+</div>
 
-<main class="page-content">
-  <div class="hero-section">
-    <h1>{{ site.title }}</h1>
-    <p class="subtitle">{{ site.description }}</p>
+<!-- 导航菜单 -->
+<nav class="main-nav">
+  <div class="container">
+    {% for item in site.navbar %}
+      <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>
+        {{ item.name }}
+      </a>
+    {% endfor %}
+    <!-- 搜索框 -->
+    <div class="search-box">
+      <input type="text" placeholder="搜索文章...">
+      <button>搜索</button>
+    </div>
   </div>
+</nav>
 
+<!-- 文章网格布局 -->
+<div class="posts-container">
+  <!-- 第一篇特色文章 -->
+  {% assign first_post = paginator.posts | first %}
+  <article class="featured-post">
+    <div class="post-meta">
+      <span class="category">精选</span>
+      <time datetime="{{ first_post.date | date_to_xmlschema }}">
+        {{ first_post.date | date: "%Y年%m月%d日" }}
+      </time>
+    </div>
+    <h2><a href="{{ first_post.url | relative_url }}">{{ first_post.title }}</a></h2>
+    <div class="post-excerpt">
+      {{ first_post.excerpt | truncate: 200 }}
+    </div>
+    <a href="{{ first_post.url | relative_url }}" class="read-more">阅读更多</a>
+  </article>
+
+  <!-- 分隔线 -->
+  <hr class="post-divider">
+
+  <!-- 其他文章网格 -->
   <div class="posts-grid">
-    {% for post in paginator.posts %}
+    {% for post in paginator.posts offset:1 %}
       <article class="post-card">
-        <h2>{{ post.title }}</h2>
         <div class="post-meta">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y年%m月%d日" }}</time>
+          <span class="category">{{ post.categories | first | default: "未分类" }}</span>
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%Y年%m月%d日" }}
+          </time>
         </div>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <div class="post-excerpt">
           {{ post.excerpt | truncate: 120 }}
         </div>
@@ -32,23 +62,17 @@ layout: default
       </article>
     {% endfor %}
   </div>
+</div>
 
-  <!-- 分页导航 -->
-  <div class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}" class="previous">上一页</a>
-    {% endif %}
-    
-    <span class="page_number">第 {{ paginator.page }} 页 / 共 {{ paginator.total_pages }} 页</span>
-    
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path }}" class="next">下一页</a>
-    {% endif %}
-  </div>
-</main>
-
-<footer class="site-footer dark-bar">
-  <div class="wrapper">
-    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. 保留所有权利。</p>
-  </div>
-</footer>
+<!-- 分页导航 -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">上一页</a>
+  {% endif %}
+  
+  <span class="page-number">第 {{ paginator.page }} 页 / 共 {{ paginator.total_pages }} 页</span>
+  
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">下一页</a>
+  {% endif %}
+</div>
