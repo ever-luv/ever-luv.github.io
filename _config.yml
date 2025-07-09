@@ -1,3 +1,27 @@
-theme: jekyll-theme-minimal
-title: Octocat's homepage
-description: Bookmark this to keep an eye on my project updates!
+title: "zx_Sun  forever-love"                # 显示在浏览器标签页和页眉
+description: "一片深红而澄赤的心海"     # 用于SEO和社交媒体摘要
+url: "https://ever-luv.github.io"  # 正式环境域名
+baseurl: ""                     # 非根目录部署时填写（如 `/repo`）
+lang: zh-CN                     # 多语言支持 :cite[2]
+
+theme: minima                   # GitHub Pages默认主题  
+minima:                         # 主题子配置
+  skin: light                   # 浅色模式（可选 `dark`）
+  social_links:                 # 页脚社交图标（简约布局推荐≤3个）
+    github: ever-luv        # 仅需ID，自动生成链接
+    QQ: 2500574696
+    email: 2500574696@qq.com
+
+# 文章目录与标签
+paginate: 5                     # 首页文章列表分页大小
+paginate_path: ""      # 分页路径格式
+plugins:                        # 启用轻量插件
+  - jekyll-feed                 # RSS订阅（无干扰内容推荐）
+  - jekyll-seo-tag              # SEO优化标签
+
+# Markdown解析
+markdown: kramdown              # 默认解析器
+kramdown:
+  input: GFM                    # 支持GitHub风格Markdown
+  auto_ids: true                # 标题自动生成ID（用于锚点）
+  hard_wrap: false              # 禁用硬换行（保持段落紧凑）
