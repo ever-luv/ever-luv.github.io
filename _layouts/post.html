@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<article class="post">
+    <div class="post-meta">
+        <span class="category">{{ page.categories | join: ', ' }}</span>
+        <span class="date">{{ page.date | date: "%Y年%m月%d日" }}</span>
+    </div>
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-content">
+        {{ content }}
+    </div>
+</article>
+
+<!-- 评论区域 -->
+{% if page.comments %}
+<div class="comments">
+    <div class="container">
+        <!-- 这里可以添加评论系统，例如 Disqus -->
+    </div>
+</div>
+{% endif %}
