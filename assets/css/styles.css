@@ -238,6 +238,10 @@ a:hover {
     text-decoration: underline;
 }
 
+.footer-content {
+    background-color: red; /* 测试用 */
+}
+
 .copyright {
     margin-top: 15px;
     font-size: 14px;
