@@ -1,8 +1,14 @@
-/* 全局样式 */
+/* ==========================
+   全局样式
+   ========================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
@@ -10,6 +16,8 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -27,7 +35,9 @@ a:hover {
     text-decoration: underline;
 }
 
-/* 顶部黑色导航栏 */
+/* ==========================
+   顶部黑色导航栏
+   ========================== */
 .top-header {
     background-color: #000;
     color: #fff;
@@ -39,7 +49,9 @@ a:hover {
     font-weight: bold;
 }
 
-/* 主标题区域 */
+/* ==========================
+   主标题区域
+   ========================== */
 .main-title {
     text-align: center;
     padding: 40px 0;
@@ -53,7 +65,9 @@ a:hover {
     color: #333;
 }
 
-/* 导航菜单 */
+/* ==========================
+   导航菜单
+   ========================== */
 .main-nav {
     background-color: #fff;
     border-bottom: 1px solid #e1e4e8;
@@ -64,11 +78,14 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .main-nav ul {
     display: flex;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .main-nav ul li {
@@ -87,6 +104,7 @@ a:hover {
 
 .search-box {
     display: flex;
+    margin-top: 10px;
 }
 
 .search-box input {
@@ -109,18 +127,24 @@ a:hover {
     background-color: #0256cc;
 }
 
-/* 主要内容区域 */
+/* ==========================
+   主内容区域
+   ========================== */
 .main-content {
+    flex: 1;
     padding: 40px 0;
 }
 
-/* 特色文章 (第一篇文章) */
-.featured-post {
+/* ==========================
+   文章列表样式
+   ========================== */
+.featured-post,
+.post-card {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin-bottom: 40px;
+    padding: 20px;
+    margin-bottom: 30px;
 }
 
 .post-meta {
@@ -135,7 +159,7 @@ a:hover {
 }
 
 .post-title {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 15px;
 }
 
@@ -162,25 +186,15 @@ a:hover {
     text-decoration: underline;
 }
 
-/* 文章网格 */
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
-.post-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-.post-card .post-title {
-    font-size: 18px;
-}
-
-/* 分页导航 */
+/* ==========================
+   分页导航
+   ========================== */
 .pagination {
     margin: 40px 0;
     text-align: center;
@@ -190,12 +204,14 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.pagination a, .pagination span {
+.pagination a,
+.pagination span {
     display: inline-block;
     padding: 8px 12px;
-    margin: 0 5px;
+    margin: 5px;
     border-radius: 4px;
     background-color: #fff;
     border: 1px solid #e1e4e8;
@@ -213,61 +229,66 @@ a:hover {
     text-decoration: none;
 }
 
-/* 底部黑色页脚 */
+/* ==========================
+   底部黑色页脚
+   ========================== */
 .bottom-footer {
     background-color: #000;
     color: #fff;
-    padding: 30px 0;
-    margin-top: 40px;
+    padding: 10px 0;
+    font-size: 14px;
+    width: 100%;
 }
 
 .footer-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px; /* 控制三项之间的间距 */
-    flex-wrap: wrap; /* 在小屏幕上自动换行 */
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .footer-content p {
-    margin-bottom: 10px;
+    margin: 0;
 }
 
 .footer-content a {
     color: #fff;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
     text-decoration: underline;
 }
 
-.footer-content {
-    background-color: red; /* 测试用 */
-}
-
-.copyright {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #aaa;
-}
-
-/* 响应式设计 */
+/* ==========================
+   响应式设计
+   ========================== */
 @media (max-width: 768px) {
     .posts-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .main-nav .container {
         flex-direction: column;
+        align-items: flex-start;
     }
-    
+
     .main-nav ul {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
-    
+
     .search-box {
         width: 100%;
     }
-    
+
     .search-box input {
         flex: 1;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
@@ -275,11 +296,11 @@ a:hover {
     .posts-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .main-nav ul {
         flex-wrap: wrap;
     }
-    
+
     .main-nav ul li {
         margin-right: 15px;
         margin-bottom: 10px;
