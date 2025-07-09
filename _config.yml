@@ -1,16 +1,22 @@
 # 基础设置
-title: "Clarity-Vermilion Heartsea"                       # 网站标题
-description: "一片精神旷野，一片心灵之海"  # 网站副标题
-url: ""    # 您的网站URL
-baseurl: ""                             # 项目子路径（若无则留空）
+title: "Clarity-Vermilion Heartsea"       # 网站标题
+description: "一片精神旷野，一片心灵之海"   # 网站副标题
+url: "https://ever-luv.github.io"         # 您的网站URL
+baseurl: ""                               # 项目子路径（若无则留空）
+lang: zh-CN
+
+# 作者信息
+author:
+  name: "sun-zx"
+  github: "ever-luv"
+  email: "2500574696@qq.com"
 
 # 主题设置
-theme: minima                           # 使用GitHub Pages默认主题
-minima:
-  skin: light                          # 浅色主题
-  
+theme: minima
+plugins:
+  - jekyll-paginate
 
-# 自定义导航
+# 导航菜单
 navbar:
   - name: "首页"
     url: "/"
@@ -20,12 +26,10 @@ navbar:
     url: "/guestbook"
   - name: "关于"
     url: "/about"
-
-# 布局设置
-collections:
-  posts:
-    output: true
-    permalink: /:year/:month/:title.html
+  
+# 分页设置
+paginate: 10
+paginate_path: "/page:num"
 
 # Markdown解析
 markdown: kramdown
@@ -33,7 +37,3 @@ kramdown:
   input: GFM
   auto_ids: true
   hard_wrap: false
-
-# 分页设置
-paginate: 9                            # 每页显示9篇文章（3×3布局）
-paginate_path: ""             # 分页路径格式
