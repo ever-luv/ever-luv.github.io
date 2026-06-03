@@ -1,0 +1,33 @@
+# 网站设置
+title: "Clarity-Vermilion Heartsea"
+email: 2500574696@qq.com
+description: "精神旷野，心灵之海"
+baseurl: ""
+url: "https://ever-luv.github.io"
+github_username: ever-luv
+
+# 构建设置
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:year/:month/:day/:title/
+
+# 分页
+paginate: 10
+paginate_path: "/page:num/"
+
+# 插件
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+
+# 摘要设置：用 <!--more--> 控制首页显示多少内容
+excerpt_separator: "<!--more-->"
+
+# 默认值
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
