@@ -1,0 +1,42 @@
+---
+layout: default
+title: 文章列表
+---
+
+<section class="blog-page">
+    <div class="container">
+        <h1 class="page-title">文章列表</h1>
+        
+        <!-- 搜索框 -->
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="搜索标签或文章内容...">
+            <button id="search-btn">搜索</button>
+        </div>
+        
+        <!-- 标签筛选 -->
+        <div class="tag-filter">
+            <span class="filter-label">标签：</span>
+            <span class="tag-item active" data-tag="all">全部</span>
+            <span class="tag-item" data-tag="学习">学习</span>
+            <span class="tag-item" data-tag="生活">生活</span>
+            <span class="tag-item" data-tag="升学">升学</span>
+        </div>
+        
+        <!-- 文章列表 -->
+        <div class="posts-list" id="posts-list">
+            {% for post in site.posts %}
+            <article class="post-card" data-tags="{{ post.categories | join: ' ' }}">
+                <div class="post-meta">
+                    <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
+                    <span class="post-category">{{ post.categories | join: ', ' }}</span>
+                </div>
+                <h2 class="post-title">
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h2>
+                <p class="post-summary">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+                <a href="{{ post.url | relative_url }}" class="read-more">阅读全文 →</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
