@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<article class="post-page">
+    <div class="container">
+        <div class="post-meta">
+            <span class="post-category">{{ page.categories | join: ', ' }}</span>
+            <span class="post-date">{{ page.date | date: "%Y年%m月%d日" }}</span>
+        </div>
+        <h1 class="post-title">{{ page.title }}</h1>
+        <div class="post-content">
+            {{ content }}
+        </div>
+        
+        <!-- 留言区域占位 -->
+        <div class="comments-placeholder">
+            <h3>留言</h3>
+            <p>留言功能（待添加 Giscus）</p>
+        </div>
+    </div>
+</article>
