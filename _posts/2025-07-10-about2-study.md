@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 现阶段对升学的一些想法
+title: 关于升学
 categories: [学习]
 ---
 
