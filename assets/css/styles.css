@@ -473,7 +473,7 @@ a:hover { color: #0256cc; }
 /* 文章主体：左边竖线 + 浅灰背景框 */
 .post-body {
     background-color: #fafafa;
-    border-left: 3px solid #666;
+    border-left: 1px solid #aaa;
     border-radius: 0 8px 8px 0;
     padding: 30px 35px;
     text-align: left;
