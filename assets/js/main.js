@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const selectedTag = this.getAttribute('data-tag');
                 const posts = postsList.querySelectorAll('.post-card');
                 
-                // 更新活跃状态
                 tagItems.forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
                 
@@ -56,4 +55,34 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    
+    // 音乐播放器
+    const musicToggle = document.getElementById('music-toggle');
+    const musicPanel = document.getElementById('music-panel');
+    const musicClose = document.getElementById('music-close');
+    
+    if (musicToggle && musicPanel) {
+        musicToggle.addEventListener('click', function() {
+            musicPanel.classList.toggle('active');
+        });
+        
+        if (musicClose) {
+            musicClose.addEventListener('click', function() {
+                musicPanel.classList.remove('active');
+            });
+        }
+    }
+    
+    // 音乐曲目点击（占位功能）
+    const musicItems = document.querySelectorAll('.music-item');
+    const nowPlaying = document.getElementById('now-playing');
+    
+    musicItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const name = this.querySelector('.music-name').textContent;
+            if (nowPlaying) {
+                nowPlaying.textContent = '正在播放：' + name;
+            }
+        });
+    });
 });
