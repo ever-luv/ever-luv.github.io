@@ -4,37 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-    <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
+    <link rel="icon" href="{{ site.baseurl }}/favicon.ico">
 </head>
 <body>
-    <!-- 顶部导航 -->
+    <!-- 顶部黑色区域 -->
     <header class="top-header">
         <div class="container">
             <div class="header-inner">
-                <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+                <a href="{{ site.baseurl }}/" class="logo">{{ site.title }}</a>
                 <nav class="main-nav">
-                    <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>首页</a>
-                    <a href="{{ '/blog/' | relative_url }}" {% if page.url contains '/blog/' %}class="active"{% endif %}>文章列表</a>
-                    <a href="{{ '/gallery/' | relative_url }}" {% if page.url contains '/gallery/' %}class="active"{% endif %}>文艺馆</a>
-                    <a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about/' %}class="active"{% endif %}>关于</a>
+                    <a href="{{ site.baseurl }}/" {% if page.url == '/' %}class="active"{% endif %}>首页</a>
+                    <a href="{{ site.baseurl }}/blog/" {% if page.url contains '/blog/' %}class="active"{% endif %}>文章列表</a>
+                    <a href="{{ site.baseurl }}/gallery/" {% if page.url contains '/gallery/' %}class="active"{% endif %}>文艺馆</a>
+                    <a href="{{ site.baseurl }}/about/" {% if page.url contains '/about/' %}class="active"{% endif %}>关于</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- 主内容区 -->
+    <!-- 主内容区（白色） -->
     <main class="main-content">
-        {{ content }}
+        <div class="content-wrapper">
+            {{ content }}
+        </div>
     </main>
 
-    <!-- 底部 -->
+    <!-- 底部黑色区域 -->
     <footer class="bottom-footer">
         <div class="container">
             <p>by ever-luv</p>
         </div>
     </footer>
 
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <!-- 右侧固定音乐播放器 -->
+    <div class="music-widget" id="music-widget">
+        <button class="music-toggle" id="music-toggle" title="音乐播放器">
+            🎵
+        </button>
+        <div class="music-panel" id="music-panel">
+            <div class="music-panel-header">
+                <h4>钢琴曲</h4>
+                <button class="music-close" id="music-close">×</button>
+            </div>
+            <div class="music-list">
+                <div class="music-item" data-src="">
+                    <span class="music-name">曲目 1（待添加）</span>
+                    <button class="music-play-btn">▶</button>
+                </div>
+                <div class="music-item" data-src="">
+                    <span class="music-name">曲目 2（待添加）</span>
+                    <button class="music-play-btn">▶</button>
+                </div>
+                <div class="music-item" data-src="">
+                    <span class="music-name">曲目 3（待添加）</span>
+                    <button class="music-play-btn">▶</button>
+                </div>
+            </div>
+            <div class="music-now-playing">
+                <span id="now-playing">未播放</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ site.baseurl }}/assets/js/main.js"></script>
 </body>
 </html>
