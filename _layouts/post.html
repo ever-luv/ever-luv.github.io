@@ -9,8 +9,12 @@ layout: default
             <span class="post-date">{{ page.date | date: "%Y年%m月%d日" }}</span>
         </div>
         <h1 class="post-title">{{ page.title }}</h1>
-        <div class="post-content">
-            {{ content }}
+        
+        <!-- 文章主体：带左边框 -->
+        <div class="post-body">
+            <div class="post-content">
+                {{ content }}
+            </div>
         </div>
         
         <!-- 留言区域占位 -->
