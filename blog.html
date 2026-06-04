@@ -1,11 +1,11 @@
 ---
 layout: default
-title: 文章列表
+title: 文章
 ---
 
 <section class="blog-page">
     <div class="container">
-        <h1 class="page-title">文章列表</h1>
+        <h1 class="page-title">文章</h1>
         
         <!-- 搜索框 -->
         <div class="search-box">
@@ -22,20 +22,27 @@ title: 文章列表
             <span class="tag-item" data-tag="升学">升学</span>
         </div>
         
-        <!-- 文章列表 -->
-        <div class="posts-list" id="posts-list">
-            {% for post in site.posts %}
-            <article class="post-card" data-tags="{{ post.categories | join: ' ' }}">
-                <div class="post-meta">
-                    <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
-                    <span class="post-category">{{ post.categories | join: ', ' }}</span>
+        <!-- 按月分组的文章列表 -->
+        <div class="posts-by-month" id="posts-list">
+            {% assign posts_by_month = site.posts | group_by_exp: "post", "post.date | date: '%Y年%m月'" %}
+            {% for month in posts_by_month %}
+            <div class="month-group" data-tags="{% for post in month.items %}{{ post.categories | join: ' ' }} {% endfor %}">
+                <h2 class="month-title">{{ month.name }}</h2>
+                <div class="month-posts">
+                    {% for post in month.items %}
+                    <article class="post-entry" data-tags="{{ post.categories | join: ' ' }}">
+                        <span class="post-bullet">●</span>
+                        <div class="post-entry-info">
+                            <a href="{{ post.url | relative_url }}" class="post-entry-title">{{ post.title }}</a>
+                            <div class="post-entry-meta">
+                                <span class="post-entry-date">{{ post.date | date: "%m月%d日" }}</span>
+                                <span class="post-entry-category">{{ post.categories | join: ', ' }}</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
                 </div>
-                <h2 class="post-title">
-                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                </h2>
-                <p class="post-summary">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
-                <a href="{{ post.url | relative_url }}" class="read-more">阅读全文 →</a>
-            </article>
+            </div>
             {% endfor %}
         </div>
     </div>
